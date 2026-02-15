@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Score Predictor</title>
+    <style>
+        :root {
+            --ink: #1e1a17;
+            --muted: #6b5f57;
+            --accent: #1e7c7a;
+            --accent-2: #d08a3d;
+            --bg: #f3efe9;
+            --panel: #fffdfa;
+            --line: #e7ddd3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: var(--ink);
+            background: linear-gradient(135deg, #f7efe6 0%, #eef4f3 45%, #f7efe6 100%);
+        }
+
+        .wrap {
+            min-height: 100vh;
+            padding: 48px 20px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shell {
+            width: min(1040px, 100%);
+            display: grid;
+            gap: 28px;
+        }
+
+        .hero {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 36px 40px;
+            box-shadow: 0 24px 60px rgba(27, 27, 27, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: auto -80px -120px auto;
+            width: 280px;
+            height: 280px;
+            background: rgba(30, 124, 122, 0.12);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: -120px auto auto -120px;
+            width: 240px;
+            height: 240px;
+            background: rgba(208, 138, 61, 0.16);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            margin: 0 0 12px;
+            font-size: clamp(30px, 4.5vw, 52px);
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--muted);
+            max-width: 720px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .cta-row {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .cta {
+            padding: 12px 22px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta.primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .cta.secondary {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .panel {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px 20px;
+            min-height: 140px;
+        }
+
+        .panel h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .panel p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .steps {
+            display: grid;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px dashed #d5c7bb;
+            background: #fff6ed;
+        }
+
+        .steps strong {
+            color: var(--accent-2);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 28px;
+            }
+
+            .cta-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="shell">
+            <section class="hero">
+                <div class="tag">Student Analytics Lab</div>
+                <h1>Predict math scores with a trained ML model</h1>
+                <p>
+                    Explore how academic and background factors combine to influence
+                    performance. Provide the student details, and our model will return
+                    a math score estimate in seconds.
+                </p>
+                <div class="cta-row">
+                    <a class="cta primary" href="/predictdata">Start Prediction</a>
+                    <a class="cta secondary" href="/predictdata">View Input Form</a>
+                </div>
+            </section>
+
+            <section class="grid">
+                <div class="panel">
+                    <h3>Feature Inputs</h3>
+                    <p>Gender, race/ethnicity, parental education, lunch type, and test prep status.</p>
+                </div>
+                <div class="panel">
+                    <h3>Academic Signals</h3>
+                    <p>Reading and writing scores feed the model to estimate math performance.</p>
+                </div>
+                <div class="panel">
+                    <h3>Model Coverage</h3>
+                    <p>Trained and validated on student performance data for reliable estimates.</p>
+                </div>
+                <div class="panel">
+                    <h3>Instant Output</h3>
+                    <p>Get a single predicted score with a clean, focused result.</p>
+                </div>
+            </section>
+
+            <section class="steps">
+                <div><strong>How it works:</strong> enter the student profile, confirm the scores, and submit.</div>
+                <div>We process the inputs through the pre-trained pipeline and return a prediction.</div>
+            </section>
+
+            <footer>
+                Predictions are estimates for educational insight and should not be used as the sole decision factor.
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
